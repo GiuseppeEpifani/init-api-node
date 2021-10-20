@@ -17,15 +17,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-//create a route to handle product api
-app.use('/api/v1/product', require('./routes/productRoutes'));
-
 //create a route to handle userSingup API
-app.use('/api/v1/user', require('./routes/userRoutes'));
-
-app.get('/', (req, res, next) =>{
-    res.send('hello world from kash');
-});
+app.use('/api/user', require('./routes/userRoutes'));
 
 const PORT = process.env.PORT ||  3000;
 
@@ -41,4 +34,4 @@ app.use(function (err, req, res, next) {
      message: err.message,
      body:{}
     });
-  })
+})
